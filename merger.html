@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Merger Page</title>
+	<style>
+		body {
+			background-color: beige;
+			font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+			text-align: center;
+		}
+
+		h1 {
+			text-align: center;
+			margin-top: 40px;
+			font-weight: bold;
+			color: darkred;
+			text-shadow: 2px 2px 2px rgb(207, 108, 108);
+		}
+
+		.flex-container {
+			display: flex;
+			flex-direction: row;
+			background-color: rgb(220, 208, 208);
+		}
+
+		.flex-container>div {
+			
+			background-color: rgb(169, 42, 42);
+			margin: 15px;
+			padding: 25px;
+			font-size: 20px;
+		}
+
+		
+		@media (max-width: 500px) {
+			.flex-container {
+				flex-direction: column;
+				background-color: rgb(19, 21, 19);
+			}
+		}
+
+		.button {
+			background-color: #2b332c;
+			border: none;
+			color: rgb(230, 115, 115);
+			padding: 25px 22px;
+			text-align: center;
+			text-decoration: none;
+			display: inline-block;
+			font-size: 15px;
+			border-radius: 5px;
+		}
+
+		p {
+			font-weight: bold;
+			margin: 16px;
+			font-size: 15px;
+			padding: 8px;
+		}
+
+		input[type=text] {
+			border: 4px solid rgb(204, 80, 80);
+			border-radius: 6px;
+			padding: 9px;
+		}
+
+		.label {
+			font-weight: bold;
+			margin: 15px;
+			font-size: 15px;
+			padding: 8px;
+		}
+	</style>
+</head>
+<script>
+	function makeNewDiv() {
+		let element = document.createElement("div");
+		let value = document.getElementById("inputElement").value;
+		element.style.color = "black";
+		element.innerHTML = value;
+		element.className = "merger";
+		let container = document.getElementById('target');
+		container.appendChild(element);
+	}
+	function addFront() {
+		let element = document.createElement("div");
+		let value = document.getElementById("inputElement").value;
+		element.style.color = "black";
+		element.innerHTML = value;
+		element.className = "merger";
+		let container = document.getElementById("target");
+		container.insertBefore(element, container.firstChild);
+	}
+	
+</script>
+
+
+<body>
+	<h1>Avinash Chinnala builds a merger</h1>
+	<label class="label" for="inputElement">Input:</label>
+	<input type="text" class="form-control" name="inputElement" id="inputElement" value="">
+	<br>
+	<br>
+	<div class="flex-container" id="target">
+		<div class="merger">row item 1</div>
+		<div class="merger">row item 2</div>
+		<div class="merger">row item 3</div>
+	</div>
+	<br>
+	<button type="button" class="button" onclick="makeNewDiv()"><b>Add end</b></button>
+	<button type="button" class="button" onclick="addFront()"><b>Add front</b></button>
+	<button type="button" class="button" onclick="remove()"><b>Remove</b></button>
+	<button type="button" class="button" onclick="swap()"><b>Swap</b></button>
+</body>
+
+</html>
